@@ -4,9 +4,13 @@
 # (random, csv, datetime) plus the psql CLI for COPY. This keeps setup
 # dependency-free and reproducible.
 #
-# The single external dependency is litellm, used only by
-# scripts/generate_ai_brief.py to send the SQL-calculated metrics JSON
-# to an LLM (Groq, openai/gpt-oss-120b) and get back a stakeholder brief.
-# Requires GROQ_API_KEY in the environment.
+# The single external dependency is litellm. Nothing in the project
+# imports it yet. It is listed here for the final step, which sends the
+# metrics already calculated by SQL to an LLM and gets back a
+# stakeholder brief. The LLM never queries the database and never
+# calculates a metric.
+#
+# Until that step exists, every script in scripts/ runs without
+# installing anything.
 
 litellm>=1.55.0

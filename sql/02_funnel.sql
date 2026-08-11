@@ -2,8 +2,8 @@
 -- 02 — Activation funnel
 -- =====================================================================
 -- Business question:
---   Where in the journey from signup to paying customer do users drop
---   off, and which single step loses the most people?
+--   Between signing up and paying, which milestones do users fail to
+--   reach, and which single step loses the most people?
 --
 -- Output grain:
 --   One row per funnel stage, 5 rows, ordered from top to bottom.
@@ -17,6 +17,29 @@
 --   pct_of_previous_stage  — share of the stage immediately above,
 --                            which is what tells you where the biggest
 --                            single leak is
+--
+-- ---------------------------------------------------------------------
+-- What kind of funnel this is
+-- ---------------------------------------------------------------------
+--   This is a MILESTONE-REACH funnel, not a strictly ordered sequence.
+--   Each stage counts users who reached that milestone within 28 days
+--   of signing up. Nothing in the SQL requires stage N to have happened
+--   after stage N-1.
+--
+--   That distinction was measured rather than assumed. In this dataset
+--   there are zero cases of completing onboarding without starting it,
+--   subscribing before using the core feature, or subscribing without
+--   using the core feature. There is one real violation: 1.30% of the
+--   eligible cohort used the core feature before finishing onboarding,
+--   because ongoing usage begins in week 1 while a minority finish
+--   onboarding as late as day 23.
+--
+--   Enforcing strict ordering would move this stage from 4,355 users to
+--   4,311 — 44 users, 0.53%, and the funnel would read 52.4% instead of
+--   52.9%. The looser definition was kept because it is simpler to state
+--   and to defend, and because the difference is immaterial. The
+--   measured violation rate is recorded here so the choice is visible
+--   rather than hidden.
 --
 -- SQL note:
 --   LAG() is used to reach the previous stage's user count. Comparing

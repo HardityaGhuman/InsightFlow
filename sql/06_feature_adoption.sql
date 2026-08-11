@@ -10,8 +10,12 @@
 --   first 7 days, and activated users who did not.
 --
 -- Tableau:
---   Small two-bar comparison chart showing week-4 retention for each
---   group, with the group sizes in the tooltip.
+--   Small two-bar comparison chart showing CONVERSION for each group,
+--   with the group sizes in the tooltip. Conversion is the measure to
+--   lead with here: the conversion gap between the two groups is 11.2
+--   percentage points, while the week-4 retention gap is only 4.6. Both
+--   columns are exported, so retention can be shown alongside, but a
+--   chart built on retention alone would be showing the weaker signal.
 --
 -- Denominator:
 --   ACTIVATED users only, not the whole eligible cohort. Asking whether
@@ -32,7 +36,15 @@
 --   Measuring adoption over days 0-7 and retention over days 22-28
 --   means the two measures share no days. The early-adoption question
 --   is also the more useful one for a product team: it asks whether
---   getting to the core feature quickly goes with sticking around.
+--   getting to the core feature quickly goes with better outcomes later.
+--
+--   Separating the windows changed the answer. With the overlapping
+--   definitions the retention gap was 34.7 percentage points and looked
+--   like the headline finding of the project. Once the windows no
+--   longer shared any days it collapsed to 4.6pp — most of it had been
+--   the definitions restating each other. The conversion gap survived
+--   at 11.2pp. That is why this query is now read as a statement about
+--   conversion rather than about retention.
 --
 --   The 28-day adoption figure is still reported, as the core feature
 --   adoption KPI in query 01. The two numbers answer different
@@ -44,15 +56,23 @@
 --   The two groups here were not randomly assigned. Users chose whether
 --   to reach the core feature, and the same underlying interest that
 --   made somebody explore the product in week 1 is also a reason they
---   might come back in week 4. Separating the observation windows fixes
---   the overlap in the definitions; it does NOT fix this selection
---   effect. So a retention gap between the groups is an ASSOCIATION.
+--   might subscribe later. Separating the observation windows fixes the
+--   overlap in the definitions; it does NOT fix this selection effect.
+--   So every gap between these groups is an ASSOCIATION.
 --
---   "Users who adopt the core feature retain better" is supported by
---   this output. "Getting users to the core feature will improve
---   retention" is not — that is a hypothesis, and testing it would need
---   an experiment that pushes a random half of users towards the
---   feature and compares the two halves.
+--   Supported by this output:
+--     "Activated users who reach the core feature in their first week
+--      convert at 18.0% versus 6.8% for those who do not."
+--
+--   NOT supported:
+--     "Getting users to the core feature will improve conversion."
+--      That is a hypothesis. Testing it would need an experiment that
+--      pushes a random half of users towards the feature and compares
+--      the two halves.
+--
+--   Also worth stating plainly: the week-4 retention gap here is 4.6pp,
+--   which is small. Reporting it as if the two groups retain very
+--   differently would overstate what this output shows.
 --
 --   This distinction is stated in docs/DATA.md, and must also be
 --   carried into the README, the analyst brief, and the AI system
