@@ -13,6 +13,7 @@ data/raw/
 # Tableau working files
 tableau/*.twb
 tableau/Backups/
+*.twbr
 *.hyper
 *.tde
 
