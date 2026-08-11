@@ -8,9 +8,9 @@ Creates two CSV files under data/raw/:
 
 The data is synthetic. It is generated so that the SQL analysis has
 something real to find: several deliberate behavioural patterns are
-planted in the probabilities below and documented in
-docs/SYNTHETIC_PATTERNS.md. Nothing here should be presented as a
-real-world finding.
+planted in the probabilities below, which are commented throughout this
+file. Nothing here should be presented as a real-world finding. See
+docs/DATA.md for what the synthetic dataset does and does not support.
 
 The generator uses a fixed seed, so re-running it always produces the
 same dataset. Standard library only — no pandas, no numpy.

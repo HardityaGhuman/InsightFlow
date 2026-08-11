@@ -38,7 +38,7 @@ CREATE TABLE users (
 -- events — the product activity fact table.
 -- One row per action a user takes. event_timestamp is always on or
 -- after the user's signup_date; this is enforced by the generator and
--- verified by scripts/validate_data.py.
+-- verified by sql/00_validate.sql.
 -- ---------------------------------------------------------------------
 CREATE TABLE events (
     event_id        INTEGER   PRIMARY KEY,

@@ -54,9 +54,10 @@
 --   an experiment that pushes a random half of users towards the
 --   feature and compares the two halves.
 --
---   This distinction is repeated in the README, the analyst brief, and
---   the AI system prompt, because it is the easiest mistake to make
---   with this kind of metric.
+--   This distinction is stated in docs/DATA.md, and must also be
+--   carried into the README, the analyst brief, and the AI system
+--   prompt, because it is the easiest mistake to make with this kind of
+--   metric.
 -- =====================================================================
 
 WITH activated AS (
