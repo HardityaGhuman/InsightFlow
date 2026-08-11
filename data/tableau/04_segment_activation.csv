@@ -1,0 +1,11 @@
+segment_type,segment_value,eligible_users,activated_users,activation_rate,share_of_signups
+Acquisition channel,Referral,1281,773,0.6034,0.1556
+Acquisition channel,Email,1052,578,0.5494,0.1278
+Acquisition channel,Organic,2467,1284,0.5205,0.2996
+Acquisition channel,Paid Search,1833,883,0.4817,0.2226
+Acquisition channel,Social,1601,730,0.4560,0.1944
+Device,Desktop,4580,2582,0.5638,0.5562
+Device,Tablet,811,421,0.5191,0.0985
+Device,Mobile,2843,1245,0.4379,0.3453
+Signup plan,Pro,1868,1066,0.5707,0.2269
+Signup plan,Free,6366,3182,0.4998,0.7731

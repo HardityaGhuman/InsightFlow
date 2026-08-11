@@ -1,0 +1,5 @@
+metric_name,display_order,metric_value,denominator,denominator_label,definition
+Activation rate,1,0.5159,8234,Eligible users,Completed onboarding within 7 days of signup
+Conversion rate,2,0.0571,8234,Eligible users,Started a subscription within 28 days of signup
+Week-4 retention,3,0.2624,8234,Eligible users,Active on days 22-28 after signup
+Core feature adoption,4,0.9247,4248,Activated users,Activated users who used the core feature within 28 days

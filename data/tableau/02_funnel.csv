@@ -1,0 +1,6 @@
+stage_order,stage_name,users,pct_of_signups,pct_of_previous_stage,users_lost_at_step
+1,Signed up,8234,1.0000,,
+2,Started onboarding,7080,0.8598,0.8598,1154
+3,Completed onboarding,4825,0.5860,0.6815,2255
+4,Used core feature,4355,0.5289,0.9026,470
+5,Started subscription,470,0.0571,0.1079,3885

@@ -1,0 +1,12 @@
+segment_type,segment_value,eligible_users,converted_users,conversion_rate,share_of_signups
+Acquisition channel,Referral,1281,123,0.0960,0.1556
+Acquisition channel,Email,1052,71,0.0675,0.1278
+Acquisition channel,Organic,2467,140,0.0567,0.2996
+Acquisition channel,Paid Search,1833,85,0.0464,0.2226
+Acquisition channel,Social,1601,51,0.0319,0.1944
+Company size,51-200,1626,124,0.0763,0.1975
+Company size,201+,830,60,0.0723,0.1008
+Company size,11-50,2470,146,0.0591,0.3000
+Company size,1-10,3308,140,0.0423,0.4017
+Signup plan,Pro,1868,249,0.1333,0.2269
+Signup plan,Free,6366,221,0.0347,0.7731
