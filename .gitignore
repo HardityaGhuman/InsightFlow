@@ -19,11 +19,7 @@ tableau/Backups/
 # OS
 .DS_Store
 
-# Personal working notes — not part of the published project
+# Local working notes: project brief, progress log, and session handoff.
+# Not part of the published project.
+notes/
 CLAUDE.md
-
-# Local progress log — for review only, not part of the project
-PROGRESS.md
-
-# Session handoff memory — local only
-memory.md
