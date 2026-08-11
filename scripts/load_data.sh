@@ -12,14 +12,20 @@ set -euo pipefail
 DB="${INSIGHTFLOW_DB:-insightflow}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
+# ON_ERROR_STOP is essential on every call below. psql exits 0 even when
+# a statement fails, so without it a failed schema rebuild would be
+# invisible and the COPY would load into the old, still-populated tables
+# and die on a duplicate key. That exact failure happened once.
+PSQL="psql -d $DB -q -v ON_ERROR_STOP=1"
+
 echo "Rebuilding schema in database '$DB'..."
-psql -d "$DB" -q -f "$ROOT/sql/00_schema.sql"
+$PSQL -f "$ROOT/sql/00_schema.sql"
 
 echo "Loading users..."
-psql -d "$DB" -q -c "\copy users FROM '$ROOT/data/raw/users.csv' WITH (FORMAT csv, HEADER true)"
+$PSQL -c "\copy users FROM '$ROOT/data/raw/users.csv' WITH (FORMAT csv, HEADER true)"
 
 echo "Loading events..."
-psql -d "$DB" -q -c "\copy events FROM '$ROOT/data/raw/events.csv' WITH (FORMAT csv, HEADER true)"
+$PSQL -c "\copy events FROM '$ROOT/data/raw/events.csv' WITH (FORMAT csv, HEADER true)"
 
 psql -d "$DB" -c "SELECT
     (SELECT count(*) FROM users)  AS users,

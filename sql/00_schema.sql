@@ -10,6 +10,11 @@
 -- Run with:  psql -d insightflow -f sql/00_schema.sql
 -- =====================================================================
 
+-- The user_funnel view is built on top of users, so it has to go first.
+-- Without this, DROP TABLE users fails with a dependency error, and any
+-- rebuild after the view exists would leave the old tables in place.
+DROP VIEW IF EXISTS user_funnel;
+
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS users;
 
