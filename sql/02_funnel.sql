@@ -34,12 +34,29 @@
 --   because ongoing usage begins in week 1 while a minority finish
 --   onboarding as late as day 23.
 --
---   Enforcing strict ordering would move this stage from 4,355 users to
---   4,311 — 44 users, 0.53%, and the funnel would read 52.4% instead of
---   52.9%. The looser definition was kept because it is simpler to state
---   and to defend, and because the difference is immaterial. The
---   measured violation rate is recorded here so the choice is visible
---   rather than hidden.
+--   How much would strict ordering change this stage? It depends on
+--   what "strict" is taken to mean, and there is more than one
+--   reasonable answer:
+--
+--     4,355  as built — reached the core feature at all within 28 days
+--     4,311  if the user did the core feature at ANY point after
+--            finishing onboarding (they may also have used it earlier)
+--     4,228  if the user's FIRST core feature use had to come after
+--            finishing onboarding
+--
+--   So 4,311 is not "the" strict-order number. It is the count under the
+--   looser of the two strict readings. The stricter reading is lower,
+--   because it excludes users who touched the feature early, went back
+--   to finish onboarding, and used it again afterwards.
+--
+--   The widest of these gaps is 127 users, 1.5% of the eligible cohort,
+--   moving the stage from 52.9% to 51.3% of signups. All three tell the
+--   same story about where the funnel leaks.
+--
+--   The milestone-reach definition was kept because it is one sentence
+--   to state and to defend, and because the choice between the three
+--   does not change any conclusion. The numbers are written down here so
+--   the decision is visible rather than hidden.
 --
 -- SQL note:
 --   LAG() is used to reach the previous stage's user count. Comparing
