@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment / secrets
+.env
+
+# Raw synthetic data — regenerable via scripts/generate_data.py (fixed seed=42)
+data/raw/
+
+# Tableau working files
+tableau/*.twb
+tableau/Backups/
+*.hyper
+*.tde
+
+# OS
+.DS_Store
+
+# Personal working notes — not part of the published project
+CLAUDE.md
