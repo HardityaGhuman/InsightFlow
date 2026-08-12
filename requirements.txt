@@ -4,13 +4,18 @@
 # (random, csv, datetime) plus the psql CLI for COPY. This keeps setup
 # dependency-free and reproducible.
 #
-# The single external dependency is litellm. Nothing in the project
-# imports it yet. It is listed here for the final step, which sends the
-# metrics already calculated by SQL to an LLM and gets back a
-# stakeholder brief. The LLM never queries the database and never
-# calculates a metric.
+# The single external dependency is litellm, imported only by
+# scripts/generate_ai_brief.py, which sends the metrics already
+# calculated by SQL to an LLM and gets back a stakeholder brief. The LLM
+# never queries the database and never calculates a metric — even the
+# percentage-point gaps in the brief are computed in Python first.
 #
-# Until that step exists, every script in scripts/ runs without
-# installing anything.
+# Every other script in scripts/ runs without installing anything.
+#
+# generate_ai_brief.py needs an API key for whichever provider it calls,
+# in the environment or in a .env file in the project root: GEMINI_API_KEY
+# for the default model, GROQ_API_KEY for --model groq/... . litellm is
+# what makes that swap a one-line change. .env is gitignored; never
+# commit a key.
 
 litellm>=1.55.0

@@ -1,0 +1,434 @@
+{
+  "dataset": {
+    "synthetic": true,
+    "note": "Generated for a portfolio project with a fixed seed. Not real customer behaviour and not evidence about any real product.",
+    "window": "2025-09-01 to 2026-02-28",
+    "eligible_cohort_users": 8234
+  },
+  "units": "Every rate, pct_ and share_ field is already a percentage, rounded to one decimal place. Write 51.6 as 51.6%. Do not convert, rescale or re-round it. Fields ending _pp are percentage-point differences.",
+  "definitions": {
+    "eligible_cohort": "Signed up on or before 2026-01-31, at least 28 days before the data ends. Denominator for every rate except feature adoption.",
+    "activation": "Completed onboarding within 7 days of signup.",
+    "conversion": "Started a subscription within 28 days of signup.",
+    "week_4_retention": "Active on days 22-28 after signup.",
+    "feature_adoption_early": "Reached the core feature within the first 7 days. The 7-day window shares no days with week-4 retention (days 22-28); an earlier 28-day version overlapped it and inflated the association.",
+    "funnel": "Each stage counts users reaching that milestone within 28 days. Milestone-reach, not a strict sequence: 1.30% reached the core feature before completing onboarding."
+  },
+  "kpis": [
+    {
+      "metric_name": "Activation rate",
+      "metric_value": 51.6,
+      "denominator": 8234,
+      "denominator_label": "Eligible users"
+    },
+    {
+      "metric_name": "Conversion rate",
+      "metric_value": 5.7,
+      "denominator": 8234,
+      "denominator_label": "Eligible users"
+    },
+    {
+      "metric_name": "Week-4 retention",
+      "metric_value": 26.2,
+      "denominator": 8234,
+      "denominator_label": "Eligible users"
+    },
+    {
+      "metric_name": "Core feature adoption",
+      "metric_value": 92.5,
+      "denominator": 4248,
+      "denominator_label": "Activated users"
+    }
+  ],
+  "funnel": [
+    {
+      "stage_name": "Signed up",
+      "users": 8234,
+      "pct_of_signups": 100.0,
+      "pct_of_previous_stage": null,
+      "users_lost_at_step": null
+    },
+    {
+      "stage_name": "Started onboarding",
+      "users": 7080,
+      "pct_of_signups": 86.0,
+      "pct_of_previous_stage": 86.0,
+      "users_lost_at_step": 1154
+    },
+    {
+      "stage_name": "Completed onboarding",
+      "users": 4825,
+      "pct_of_signups": 58.6,
+      "pct_of_previous_stage": 68.2,
+      "users_lost_at_step": 2255
+    },
+    {
+      "stage_name": "Used core feature",
+      "users": 4355,
+      "pct_of_signups": 52.9,
+      "pct_of_previous_stage": 90.3,
+      "users_lost_at_step": 470
+    },
+    {
+      "stage_name": "Started subscription",
+      "users": 470,
+      "pct_of_signups": 5.7,
+      "pct_of_previous_stage": 10.8,
+      "users_lost_at_step": 3885
+    }
+  ],
+  "monthly_trends": [
+    {
+      "month_label": "Sep 2025",
+      "signups": 1410,
+      "eligible_users": 1410,
+      "activation_rate": 55.6,
+      "conversion_rate": 7.4,
+      "activation_rate_change_pp": null
+    },
+    {
+      "month_label": "Oct 2025",
+      "signups": 1519,
+      "eligible_users": 1519,
+      "activation_rate": 53.9,
+      "conversion_rate": 6.1,
+      "activation_rate_change_pp": -1.7
+    },
+    {
+      "month_label": "Nov 2025",
+      "signups": 1556,
+      "eligible_users": 1556,
+      "activation_rate": 54.4,
+      "conversion_rate": 5.4,
+      "activation_rate_change_pp": 0.5
+    },
+    {
+      "month_label": "Dec 2025",
+      "signups": 1796,
+      "eligible_users": 1796,
+      "activation_rate": 48.5,
+      "conversion_rate": 4.6,
+      "activation_rate_change_pp": -5.9
+    },
+    {
+      "month_label": "Jan 2026",
+      "signups": 1953,
+      "eligible_users": 1953,
+      "activation_rate": 47.5,
+      "conversion_rate": 5.4,
+      "activation_rate_change_pp": -1.0
+    },
+    {
+      "month_label": "Feb 2026",
+      "signups": 1766,
+      "eligible_users": 0,
+      "activation_rate": null,
+      "conversion_rate": null,
+      "activation_rate_change_pp": null
+    }
+  ],
+  "retention_weeks_1_and_4": [
+    {
+      "cohort_label": "Sep 2025",
+      "week_number": 1,
+      "cohort_users": 1410,
+      "retention_rate": 53.2
+    },
+    {
+      "cohort_label": "Sep 2025",
+      "week_number": 4,
+      "cohort_users": 1410,
+      "retention_rate": 27.9
+    },
+    {
+      "cohort_label": "Oct 2025",
+      "week_number": 1,
+      "cohort_users": 1519,
+      "retention_rate": 51.8
+    },
+    {
+      "cohort_label": "Oct 2025",
+      "week_number": 4,
+      "cohort_users": 1519,
+      "retention_rate": 27.1
+    },
+    {
+      "cohort_label": "Nov 2025",
+      "week_number": 1,
+      "cohort_users": 1556,
+      "retention_rate": 53.1
+    },
+    {
+      "cohort_label": "Nov 2025",
+      "week_number": 4,
+      "cohort_users": 1556,
+      "retention_rate": 28.6
+    },
+    {
+      "cohort_label": "Dec 2025",
+      "week_number": 1,
+      "cohort_users": 1796,
+      "retention_rate": 49.0
+    },
+    {
+      "cohort_label": "Dec 2025",
+      "week_number": 4,
+      "cohort_users": 1796,
+      "retention_rate": 25.3
+    },
+    {
+      "cohort_label": "Jan 2026",
+      "week_number": 1,
+      "cohort_users": 1953,
+      "retention_rate": 48.9
+    },
+    {
+      "cohort_label": "Jan 2026",
+      "week_number": 4,
+      "cohort_users": 1953,
+      "retention_rate": 23.4
+    }
+  ],
+  "segment_activation": [
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Referral",
+      "eligible_users": 1281,
+      "share_of_signups": 15.6,
+      "activation_rate": 60.3
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Email",
+      "eligible_users": 1052,
+      "share_of_signups": 12.8,
+      "activation_rate": 54.9
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Organic",
+      "eligible_users": 2467,
+      "share_of_signups": 30.0,
+      "activation_rate": 52.0
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Paid Search",
+      "eligible_users": 1833,
+      "share_of_signups": 22.3,
+      "activation_rate": 48.2
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Social",
+      "eligible_users": 1601,
+      "share_of_signups": 19.4,
+      "activation_rate": 45.6
+    },
+    {
+      "segment_type": "Device",
+      "segment_value": "Desktop",
+      "eligible_users": 4580,
+      "share_of_signups": 55.6,
+      "activation_rate": 56.4
+    },
+    {
+      "segment_type": "Device",
+      "segment_value": "Tablet",
+      "eligible_users": 811,
+      "share_of_signups": 9.8,
+      "activation_rate": 51.9
+    },
+    {
+      "segment_type": "Device",
+      "segment_value": "Mobile",
+      "eligible_users": 2843,
+      "share_of_signups": 34.5,
+      "activation_rate": 43.8
+    },
+    {
+      "segment_type": "Signup plan",
+      "segment_value": "Pro",
+      "eligible_users": 1868,
+      "share_of_signups": 22.7,
+      "activation_rate": 57.1
+    },
+    {
+      "segment_type": "Signup plan",
+      "segment_value": "Free",
+      "eligible_users": 6366,
+      "share_of_signups": 77.3,
+      "activation_rate": 50.0
+    }
+  ],
+  "segment_conversion": [
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Referral",
+      "eligible_users": 1281,
+      "share_of_signups": 15.6,
+      "conversion_rate": 9.6
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Email",
+      "eligible_users": 1052,
+      "share_of_signups": 12.8,
+      "conversion_rate": 6.8
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Organic",
+      "eligible_users": 2467,
+      "share_of_signups": 30.0,
+      "conversion_rate": 5.7
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Paid Search",
+      "eligible_users": 1833,
+      "share_of_signups": 22.3,
+      "conversion_rate": 4.6
+    },
+    {
+      "segment_type": "Acquisition channel",
+      "segment_value": "Social",
+      "eligible_users": 1601,
+      "share_of_signups": 19.4,
+      "conversion_rate": 3.2
+    },
+    {
+      "segment_type": "Company size",
+      "segment_value": "51-200",
+      "eligible_users": 1626,
+      "share_of_signups": 19.8,
+      "conversion_rate": 7.6
+    },
+    {
+      "segment_type": "Company size",
+      "segment_value": "201+",
+      "eligible_users": 830,
+      "share_of_signups": 10.1,
+      "conversion_rate": 7.2
+    },
+    {
+      "segment_type": "Company size",
+      "segment_value": "11-50",
+      "eligible_users": 2470,
+      "share_of_signups": 30.0,
+      "conversion_rate": 5.9
+    },
+    {
+      "segment_type": "Company size",
+      "segment_value": "1-10",
+      "eligible_users": 3308,
+      "share_of_signups": 40.2,
+      "conversion_rate": 4.2
+    },
+    {
+      "segment_type": "Signup plan",
+      "segment_value": "Pro",
+      "eligible_users": 1868,
+      "share_of_signups": 22.7,
+      "conversion_rate": 13.3
+    },
+    {
+      "segment_type": "Signup plan",
+      "segment_value": "Free",
+      "eligible_users": 6366,
+      "share_of_signups": 77.3,
+      "conversion_rate": 3.5
+    }
+  ],
+  "feature_adoption_early_7_days": [
+    {
+      "adoption_group": "Reached core feature in first 7 days",
+      "users": 1415,
+      "share_of_activated": 33.3,
+      "week_4_retention_rate": 47.9,
+      "conversion_rate": 18.0
+    },
+    {
+      "adoption_group": "Did not reach core feature in first 7 days",
+      "users": 2833,
+      "share_of_activated": 66.7,
+      "week_4_retention_rate": 43.3,
+      "conversion_rate": 6.8
+    }
+  ],
+  "channel_device_top_3": [
+    {
+      "segment_combination": "Referral / Desktop",
+      "eligible_users": 711,
+      "activation_rate": 66.5,
+      "conversion_rate": 11.1,
+      "gap_vs_overall_pp": 14.9
+    },
+    {
+      "segment_combination": "Email / Desktop",
+      "eligible_users": 605,
+      "activation_rate": 62.6,
+      "conversion_rate": 7.6,
+      "gap_vs_overall_pp": 11.1
+    },
+    {
+      "segment_combination": "Referral / Tablet",
+      "eligible_users": 117,
+      "activation_rate": 61.5,
+      "conversion_rate": 7.7,
+      "gap_vs_overall_pp": 9.9
+    }
+  ],
+  "channel_device_bottom_3": [
+    {
+      "segment_combination": "Paid Search / Mobile",
+      "eligible_users": 643,
+      "activation_rate": 41.5,
+      "conversion_rate": 4.8,
+      "gap_vs_overall_pp": -10.1
+    },
+    {
+      "segment_combination": "Email / Mobile",
+      "eligible_users": 347,
+      "activation_rate": 41.5,
+      "conversion_rate": 4.9,
+      "gap_vs_overall_pp": -10.1
+    },
+    {
+      "segment_combination": "Social / Mobile",
+      "eligible_users": 539,
+      "activation_rate": 40.5,
+      "conversion_rate": 2.2,
+      "gap_vs_overall_pp": -11.1
+    }
+  ],
+  "derived_comparisons": {
+    "signup_growth_first_to_last_eligible_month_pct": 38.5,
+    "signup_growth_months": "Sep 2025 to Jan 2026",
+    "activation_change_first_to_last_eligible_month_pp": -8.1,
+    "largest_single_month_activation_drop_pp": -5.9,
+    "largest_in_product_funnel_drop": {
+      "stage": "Completed onboarding",
+      "pct_of_previous_stage": 0.6815,
+      "users_lost": 2255,
+      "next_stage_pass_rate": 0.9026
+    },
+    "device_activation_gap_pp": 12.6,
+    "device_gap_between": [
+      "Desktop",
+      "Mobile"
+    ],
+    "channel_activation_gap_pp": 14.7,
+    "channel_gap_between": [
+      "Referral",
+      "Social"
+    ],
+    "channel_device_activation_spread_pp": 26.1,
+    "channel_device_spread_between": [
+      "Referral / Desktop",
+      "Social / Mobile"
+    ],
+    "early_adoption_conversion_gap_pp": 11.2,
+    "early_adoption_week_4_retention_gap_pp": 4.6
+  }
+}
