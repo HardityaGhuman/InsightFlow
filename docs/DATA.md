@@ -18,7 +18,16 @@ Purely random data would have been useless, because every metric would
 land on the same value in every segment and there would be nothing to
 find. So the generator deliberately builds in behavioural differences
 between segments and a decline over time, and the SQL then measures
-them. The patterns the analysis reports were designed into the data.
+them.
+
+Some of the patterns this analysis reports were designed into the data.
+Others were not: where the funnel's largest in-product loss falls, how
+acquisition channel and device compound, and a measurement error in an
+early version of the feature-adoption query all emerged from looking at
+query output rather than from the generator. What the project
+demonstrates is whether the analysis can recover the seeded patterns,
+notice the ones that were not seeded, and interpret both responsibly —
+not that the findings themselves are discoveries.
 
 ## What this means for the findings
 
@@ -46,6 +55,34 @@ psql -d insightflow -f sql/00_validate.sql
 `data/raw/` is not committed because it is regenerable from the seed.
 The aggregated CSVs in `data/tableau/` are committed, since the Tableau
 workbook reads them.
+
+Every step above is deterministic. Dropping the database and rebuilding
+from nothing reproduces `data/raw/*.csv` and all eight
+`data/tableau/*.csv` byte-identically.
+
+## The analyst brief is the one non-reproducible output
+
+`outputs/analyst_brief.md` is written by a language model, so re-running
+`scripts/generate_ai_brief.py` produces different prose. The numbers in
+it do not change, because the model is not what produces them:
+
+- SQL calculates every metric.
+- The script computes every comparison — percentage-point gaps, growth
+  rates, funnel step losses — in Python, and rounds every rate to one
+  decimal place before the model sees it.
+- The model receives only that finished input, has no database access,
+  and does no arithmetic of any kind. Its job is to decide what matters
+  and say it in English.
+
+`outputs/metrics.json` is the exact input the model was given, saved
+next to the brief so any claim in the brief can be traced back to the
+number behind it. The script also re-reads its own output and fails if a
+figure appears there that was not in the input.
+
+That last check verifies **grounding, not coherence**. It confirms every
+number came from the data; it cannot tell whether the surrounding
+sentence is sensible. It has already passed a brief that was truncated
+mid-sentence. Read the brief; do not treat the check as approval.
 
 ## Correlation and causation
 

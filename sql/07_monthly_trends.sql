@@ -9,11 +9,16 @@
 --   One row per signup month.
 --
 -- Tableau:
---   Dual-axis combination chart. signups as bars on one axis,
---   activation_rate as a line on the other. Both values are already
---   calculated here, so the chart needs no calculated fields at all —
---   drag the month to Columns, the two measures to Rows, and make the
---   second one a dual axis.
+--   Two stacked panes sharing one month axis: signups as bars in the
+--   upper pane, activation_rate as a line in the lower one. Drag the
+--   month label to Columns and both measures to Rows; Tableau makes two
+--   panes automatically. Both values are already calculated here, so the
+--   chart needs no calculated fields at all.
+--
+--   Deliberately NOT a dual axis. Signups (~1,400-1,950) and activation
+--   rate (0.48-0.56) cannot share a scale, so a dual axis needs two
+--   y-scales, and where the bars appear to cross the line is then set by
+--   the chosen ranges rather than by the data.
 --
 -- Denominators — note that this query uses TWO different populations,
 -- on purpose:
