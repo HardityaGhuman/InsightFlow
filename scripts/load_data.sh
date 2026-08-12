@@ -27,7 +27,7 @@ $PSQL -c "\copy users FROM '$ROOT/data/raw/users.csv' WITH (FORMAT csv, HEADER t
 echo "Loading events..."
 $PSQL -c "\copy events FROM '$ROOT/data/raw/events.csv' WITH (FORMAT csv, HEADER true)"
 
-psql -d "$DB" -c "SELECT
+$PSQL -c "SELECT
     (SELECT count(*) FROM users)  AS users,
     (SELECT count(*) FROM events) AS events;"
 

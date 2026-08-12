@@ -87,8 +87,11 @@ SELECT
     stage_order,
     stage_name,
     users,
-    -- Share of everyone who signed up
-    round(users::numeric / max(users) OVER (), 4) AS pct_of_signups,
+    -- Share of everyone who signed up. NULLIF guards the empty-table
+    -- case, where max(users) OVER () would be 0; it cannot fire with
+    -- data loaded, and matches the guard style used in 07_monthly_trends.
+    round(users::numeric / NULLIF(max(users) OVER (), 0), 4)
+        AS pct_of_signups,
     -- Share of the stage directly above; NULL for the first stage
     round(users::numeric / LAG(users) OVER (ORDER BY stage_order), 4)
         AS pct_of_previous_stage,
